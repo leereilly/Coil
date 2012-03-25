@@ -69,35 +69,6 @@ var WebGLUtil = {
 /**
  * 
  */
-var FunctionUtil = {
-	
-	/**
-	 * 
-	 */
-	delegate: function( scope, method ) {
-		// Store any additional arguments that have been passed 
-		// to this function and append them to the arguments list
-		// of the delegate.
-		var additionalArguments = FunctionUtil.argumentsToArray( arguments ).slice(2);
-		
-		return function() { 
-			// Apply the method in the delegate scope, and forward any arguments
-			method.apply( scope, FunctionUtil.argumentsToArray( arguments ).concat( additionalArguments ) ) 
-		};
-	},
-	
-	/**
-	 * Convers an 'arguments' object to an array.
-	 */
-	argumentsToArray: function( value ) {
-		return Array.prototype.slice.call( value );
-	}
-	
-};
-
-/**
- * 
- */
 var URLUtil = {
 	
 	queryValue: function( key ) {

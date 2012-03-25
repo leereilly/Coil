@@ -15,7 +15,7 @@ var Coil = (function(){
 	
 	// Flags if the game should output debug information
 	var DEBUG = URLUtil.queryValue('debug') == '1';
-	
+
 	var TOUCH_INPUT = navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i );
 	
 	// The number of enemies that may exist at the same time,
@@ -226,7 +226,7 @@ var Coil = (function(){
 		context3d.bufferData( context3d.ARRAY_BUFFER, effectsVertices, context3d.STATIC_DRAW );
 		
 		// Load the shader texture
-		effectsTexture = WebGLUtil.loadTexture( context3d, 'images/texture.png', FunctionUtil.delegate( this, function() {
+		effectsTexture = WebGLUtil.loadTexture( context3d, 'images/texture.png', $.proxy( function() {
 			
 			// Bind the shader texture
 			WebGLUtil.bindTexture( context3d, effectsTexture );
@@ -252,7 +252,7 @@ var Coil = (function(){
 			else {
 				effectsEnabled = false;
 			}
-		}) );
+		}, this ) );
 		
 	}
 	
