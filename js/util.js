@@ -1,38 +1,3 @@
-/**
- * 
- */
-var UserProfile = {
-	
-	isOnline: navigator.onLine,
-	
-	/**
-	 * 
-	 */
-	isTouchDevice: function() {
-		return navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i );
-	},
-	
-	/**
-	 * 
-	 */
-	supportsAudio: function() {
-		return !this.isTouchDevice();
-	},
-	
-	/**
-	 * 
-	 */
-	supportsAjax: function() {
-		return window.XMLHttpRequest != null && this.isOnline;
-	},
-	
-	/**
-	 * 
-	 */
-	suportsLocalStorage: function() {
-		return ('localStorage' in window) && window['localStorage'] !== null;
-	}
-};
 
 var WebGLUtil = {
 	/**

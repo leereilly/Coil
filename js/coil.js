@@ -16,6 +16,8 @@ var Coil = (function(){
 	// Flags if the game should output debug information
 	var DEBUG = URLUtil.queryValue('debug') == '1';
 	
+	var TOUCH_INPUT = navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i );
+	
 	// The number of enemies that may exist at the same time,
 	// this scales depending on difficulty
 	var ENEMY_COUNT = 2;
@@ -27,7 +29,6 @@ var Coil = (function(){
 	var MENU_FADE_IN_DURATION = 600,
 		MENU_FADE_OUT_DURATION = 600;
 	
-	// 
 	var ENEMY_TYPE_NORMAL = 1,
 		ENEMY_TYPE_BOMB = 2,
 		ENEMY_TYPE_NORMAL_MOVER = 3,
@@ -1297,8 +1298,8 @@ var Coil = (function(){
 	
 	function onWindowResizeHandler() {
 		// Update the game size
-		world.width = UserProfile.isTouchDevice() ? window.innerWidth : DEFAULT_WIDTH;
-		world.height = UserProfile.isTouchDevice() ? window.innerHeight : DEFAULT_HEIGHT;
+		world.width = TOUCH_INPUT ? window.innerWidth : DEFAULT_WIDTH;
+		world.height = TOUCH_INPUT ? window.innerHeight : DEFAULT_HEIGHT;
 		
 		// Resize the container
 		container.width( world.width );
